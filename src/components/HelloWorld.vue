@@ -1,5 +1,28 @@
 <template>
- <v-list
+   <v-app>
+   
+<nav>
+    <v-app-bar
+      color="deep-purple"
+      dark
+    >
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>MineralNet</v-toolbar-title>
+
+<v-spacer></v-spacer>
+
+<span>SIGN OUT</span>
+<v-icon dense>mdi-logout</v-icon>     
+      
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
         nav
         dense
       >
@@ -18,7 +41,7 @@
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
+            <v-list-item-title>Login</v-list-item-title>
           </v-list-item>
           <v-list-item>
             <v-list-item-icon>
@@ -29,11 +52,29 @@
           
         </v-list-item-group>
       </v-list>
+      </v-navigation-drawer>
+  
+  </nav>
+
+   </v-app>
 </template>
+    
+
+    
+ 
+ 
+ 
+ 
 
 <script>
   export default {
-    name: 'HelloWorld'
+    name: 'HelloWorld',
 
-  }
+     data: () => ({
+    drawer: false,
+    group: null,
+  }),
+};
+
+  
 </script>
