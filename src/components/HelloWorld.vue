@@ -1,5 +1,5 @@
 <template>
-   <v-app>
+   
    
 <nav>
     <v-app-bar
@@ -29,34 +29,24 @@
         <v-list-item-group
           v-model="group"
           active-class="deep-purple--text text--accent-4"
+          v-for="link in links" :key="link.text"
         >
-          <v-list-item> 
+          <v-list-item :to="link.route" > 
+            
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon> {{link.icon}} </v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title> {{link.text}} </v-list-item-title>
+            
           </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Login</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Logout</v-list-item-title>
-          </v-list-item>
-          
-        </v-list-item-group>
+      
+      </v-list-item-group>
       </v-list>
       </v-navigation-drawer>
   
   </nav>
 
-   </v-app>
+   
 </template>
     
 
@@ -73,6 +63,12 @@
      data: () => ({
     drawer: false,
     group: null,
+    links: [
+      {icon: 'mdi-home', text: 'Home', route: '/'},
+      {icon: 'mdi-account', text: 'Login', route: '/login'},
+      {icon: 'mdi-logout', text: 'Logout', route: '/'},
+      {icon: 'mdi-account-multiple-plus-outline', text: 'Novo Usuário', route: '/novousuario'},
+      ]
   }),
 };
 

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NovoUsuario from '../views/NovoUsuario'
+import Login from '../views/Login-home'
 
 
 Vue.use(VueRouter)
@@ -21,10 +22,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/cadastre-se',
-    name: 'novo.usuario',
+    path: '/novousuario',
+    name: 'novousuario',
     component: NovoUsuario
  },
+ {
+  path: '/login',
+  name: 'login',
+  component: Login
+},
 ]
 
 const router = new VueRouter({
