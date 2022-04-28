@@ -64,6 +64,7 @@
         efetuarLogout () {
         localStorage.removeItem('token') 
         this.$router.push({name: 'login'})
+      console.log('Logout')  
      }
   },
      
