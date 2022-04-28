@@ -12,7 +12,7 @@
 
 <v-spacer></v-spacer>
 
-<span>SIGN OUT</span>
+  <span class="cursor-pointer no-underline hover:underline" @click.prevent="efetuarLogout">Logout</span>
 <v-icon dense>mdi-logout</v-icon>     
       
     </v-app-bar>
@@ -59,14 +59,20 @@
 <script>
   export default {
     name: 'HelloWorld',
-
+     
+     methods: {
+        efetuarLogout () {
+        localStorage.removeItem('token') 
+        this.$router.push({name: 'login'})
+     }
+  },
+     
      data: () => ({
     drawer: false,
     group: null,
     links: [
       {icon: 'mdi-home', text: 'Home', route: '/'},
       {icon: 'mdi-account', text: 'Login', route: '/login'},
-      {icon: 'mdi-logout', text: 'Logout', route: '/'},
       {icon: 'mdi-account-multiple-plus-outline', text: 'Novo Usuário', route: '/novousuario'},
       ]
   }),
