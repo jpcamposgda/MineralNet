@@ -5,6 +5,9 @@ import NovoUsuario from '../views/NovoUsuario'
 import Login from '../views/Login-home'
 
 
+
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,6 +34,8 @@ const routes = [
   name: 'login',
   component: Login
 },
+
+
 ]
 
 const router = new VueRouter({

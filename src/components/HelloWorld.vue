@@ -57,12 +57,32 @@
  
 
 <script>
+
+import { useUserStore } from "@/store/users";
+
   export default {
     name: 'HelloWorld',
+
+    setup(){
+
+const user = useUserStore();
+
+user.token
+
+    },
      
      methods: {
         efetuarLogout () {
-        localStorage.removeItem('token') 
+
+          const user = useUserStore();
+
+
+
+        // user.removeItem('token') 
+        user.token = null
+        user.tokenrefresh = null
+        user.user = null
+        
         this.$router.push({name: 'login'})
       console.log('Logout')  
      }

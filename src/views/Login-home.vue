@@ -23,6 +23,7 @@
 
 
 <script>
+import { useUserStore } from "@/store/users"
 
 
 export default {
@@ -37,7 +38,13 @@ methods: {
     efetuarLogin () {
       this.$http.post('auth/login', this.usuario)
              .then(response => {
-                 console.log(response)
+                 
+              const useStore = useUserStore()
+
+              useStore.token = response.data.accessToken
+              useStore.tokenrefresh = response.data.refreshToken
+              useStore.user = response.data.user
+                 
                  localStorage.setItem('token', response.data.access_token)
                  this.$router.push({ name: 'home' })
 

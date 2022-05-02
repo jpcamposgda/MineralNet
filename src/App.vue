@@ -25,7 +25,9 @@ export default {
 
 
 </v-app>
+
 </v-main>
+
 </template>
 
 

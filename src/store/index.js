@@ -10,4 +10,5 @@ export const useCounterStore = defineStore('counter', {
       this.count++
     },
   },
-})
+}) 
+export default useCounterStore;
